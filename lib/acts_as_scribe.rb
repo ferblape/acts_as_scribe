@@ -1,4 +1,2 @@
-#require 'activity'
-require 'scribe'
-
-ActiveRecord::Base.send :include, LinkingPaths::Acts::Scribe
+require 'acts_as_scribe/activity'
+require 'acts_as_scribe/scribe'

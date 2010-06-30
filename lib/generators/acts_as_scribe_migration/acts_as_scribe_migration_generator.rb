@@ -13,7 +13,7 @@ class ActsAsScribeMigrationGenerator < Rails::Generators::Base
   end
 
   def create_migration_file
-    migration_template 'migration.rb', 'db/migrate/acts_as_scribe.rb'
+    migration_template 'migration.rb', 'db/migrate/acts_as_scribe_migration.rb'
   end
 
 end
