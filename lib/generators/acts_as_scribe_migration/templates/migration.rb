@@ -10,6 +10,8 @@ class ActsAsScribeMigration < ActiveRecord::Migration
     end
     add_index :activities, [:item_type, :item_id]
     add_index :activities, [:user_id]
+    add_index :activities, [:action]
+    add_index :activities, [:created_at]
   end
 
   def self.down
