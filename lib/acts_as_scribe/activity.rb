@@ -1,18 +1,18 @@
 class Activity < ActiveRecord::Base
-  named_scope :by_user, lambda { |users|
-     { :conditions => { :user_id => users}}
+  scope :by_user, lambda { |users|
+     where(:user_id => users)
   }
 
-  named_scope :by_action, lambda { |action|
-     { :conditions => { :action => action.to_s }}
+  scope :by_action, lambda { |action|
+     where(:action => action.to_s)
   }
 
-  named_scope :by_item, lambda { |item|
-     { :conditions => { :item_type => item.class.name, :item_id => item.id }}
+  scope :by_item, lambda { |item|
+    where(item_type => item.class.name, :item_id => item.id)
   }
   
-  named_scope :created_since, lambda { |time_ago| 
-    { :conditions => ['created_at > ?', time_ago]}
+  scope :created_since, lambda { |time_ago| 
+    where(['created_at > ?', time_ago])
   }
     
 
