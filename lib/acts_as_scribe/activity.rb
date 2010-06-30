@@ -15,10 +15,13 @@ class Activity < ActiveRecord::Base
     where(['created_at > ?', time_ago])
   }
     
-
-  belongs_to :user
+  if defined?(User)
+    belongs_to :user
+    validates_presence_of :user_id
+  end
+  
   belongs_to :item, :polymorphic => true
-  validates_presence_of :user_id
+  
 
   def self.created_by(user)
     raise "Activity.created_by(user) has been deprecated. Use Activity.by_user(user) instead."
@@ -36,7 +39,11 @@ class Activity < ActiveRecord::Base
     returning Activity.new do |a|
       a.item = object if object
       a.action = action.to_s
-      a.user = user
+      if defined?(User)
+        a.user = user
+      else
+        a.user_id = 0
+      end
       a.save!
     end
   end
