@@ -13,11 +13,11 @@ Install
  
  * Run the following command:
  
- `script/plugin install git://github.com/linkingpaths/acts_as_scribe.git`
+ `rails plugin install git://github.com/linkingpaths/acts_as_scribe.git`
  
  * Generate the tables via the given generator:
 
- `script/generate acts_as_scribe_migration`
+ `rails generate acts_as_scribe_migration`
  
  * And finally...
  

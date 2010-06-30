@@ -2,7 +2,7 @@ Description:
     The migration generator creates a migration to add the activities table to your database and takes no arguments.
 
 Example:
-    ./script/generate acts_as_scribe_migration
+    rails generate acts_as_scribe_migration
 	
-	Migration:  db/migrate/add_activities_table.rb
+	Migration:  db/migrate/<migration_number>_acts_as_scribe.rb
 	The Activity model lives in the lib directory of this plugin. You can move that model into your models directory and modify it if you like.
